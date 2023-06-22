@@ -5,13 +5,15 @@ RSpec.describe 'users', type: :request do
   path '/users' do
 
     get('list users') do
+      tags 'User'
+
       response(200, 'successful') do
         run_test!
       end
     end
 
     post('create user') do
-      tags 'Create User'
+      tags 'User'
       consumes 'application/json'
       parameter name: :new_user, in: :body, schema: { '$ref' => '#/components/schemas/new_user' }
 
@@ -31,13 +33,15 @@ RSpec.describe 'users', type: :request do
     parameter name: 'id', in: :path, type: :string, description: 'id'
 
     get('show user') do
-      response(200, 'successful') do
+      tags 'User'
 
+      response(200, 'successful') do
         run_test!
       end
     end
 
     patch('update user') do
+      tags 'User'
       consumes 'application/json'
       parameter name: :new_user, in: :body, schema: { '$ref' => '#/components/schemas/new_user' }
 
@@ -49,6 +53,7 @@ RSpec.describe 'users', type: :request do
     end
 
     put('update user') do
+      tags 'User'
       consumes 'application/json'
       parameter name: :new_user, in: :body, schema: { '$ref' => '#/components/schemas/new_user' }
 
@@ -60,6 +65,8 @@ RSpec.describe 'users', type: :request do
     end
 
     delete('delete user') do
+      tags 'User'
+
       response(204, 'successful') do
         run_test!
       end

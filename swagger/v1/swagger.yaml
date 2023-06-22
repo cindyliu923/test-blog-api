@@ -7,13 +7,15 @@ paths:
   "/users":
     get:
       summary: list users
+      tags:
+      - User
       responses:
         '200':
           description: successful
     post:
       summary: create user
       tags:
-      - Create User
+      - User
       parameters: []
       responses:
         '201':
@@ -33,11 +35,15 @@ paths:
         type: string
     get:
       summary: show user
+      tags:
+      - User
       responses:
         '200':
           description: successful
     patch:
       summary: update user
+      tags:
+      - User
       parameters: []
       responses:
         '200':
@@ -49,6 +55,8 @@ paths:
               "$ref": "#/components/schemas/new_user"
     put:
       summary: update user
+      tags:
+      - User
       parameters: []
       responses:
         '200':
@@ -60,6 +68,8 @@ paths:
               "$ref": "#/components/schemas/new_user"
     delete:
       summary: delete user
+      tags:
+      - User
       responses:
         '204':
           description: successful
